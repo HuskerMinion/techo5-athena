@@ -46,6 +46,7 @@ This repo is the front page. The code, the installer, the kernel source and the 
 - Wi-Fi
 - The light sensor
 - Volume and mute buttons
+- Updates over the air from Home Assistant, into the spare of two slots, like every TECHO5 device
 
 Known limits:
 
