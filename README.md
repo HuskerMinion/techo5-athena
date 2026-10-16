@@ -37,6 +37,11 @@ from kernel.org, with a device tree and drivers written for this board.
 This repo is the front page. The code, the installer, the kernel source and the releases all live in
 [TECHO5](https://github.com/HuskerMinion/techo5), along with the other Echo Shows.
 
+> **New in v1.2.19: full speed.** Until now the kernel never scaled the CPUs, so they sat at the
+> bootloader's clock, about 1.1 GHz on the little cores and 1.2 GHz on the big ones. Now both clusters
+> run from 793 MHz up to 1.99 GHz, the way Fire OS runs them, and the chip slows itself down when it
+> gets hot. The update arrives over the air from Home Assistant, kernel included.
+
 ## What works
 
 - The screen, with a real display driver, and touch
@@ -47,6 +52,8 @@ This repo is the front page. The code, the installer, the kernel source and the 
 - The light sensor
 - Volume and mute buttons
 - Updates over the air from Home Assistant, into the spare of two slots, like every TECHO5 device
+- Full CPU speed, 793 MHz to 1.99 GHz on both clusters, with temperature control
+- Kernel updates over the air too, with the old kernel kept as the way back
 
 Known limits:
 
@@ -55,6 +62,23 @@ Known limits:
   Amazon's kernel instead.
 - The light sensor isn't calibrated yet.
 - The microphone beamformer is off.
+
+## Speed
+
+Measured with 7-Zip's benchmark, before and after the v1.2.19 kernel:
+
+| | Before | v1.2.19 |
+|---|---|---|
+| CPU clock | stuck at about 1.1 GHz (little) and 1.2 GHz (big) | 793 MHz to 1.99 GHz, both clusters |
+| One big core | 1,700 MIPS | 2,640 MIPS (+55%) |
+| All eight cores | 8,900 MIPS | 14,300 MIPS (+60%) |
+| Temperature control | none | full speed below 80 °C, slower above |
+
+On all eight cores it now outscores a Raspberry Pi 5: 14,300 MIPS in 7-Zip, against about 8,300 to
+11,000 for a Pi 5. One Pi 5 core is still faster than one of its big cores (about 3,500 against 2,640).
+
+Ten minutes at full load on all eight cores peaked at 75 °C, below the 80 °C point where it starts to
+slow down, and the scores held steady the whole time.
 
 ## How I got here
 
