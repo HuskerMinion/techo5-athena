@@ -50,6 +50,8 @@ This repo is the front page. The code, the installer, the kernel source and the 
 - Bluetooth audio from your phone
 - Wi-Fi
 - The light sensor
+- The camera, the 13 MP OmniVision OV13855: live on the screen, a Home Assistant camera, and off
+  while muted or with the shutter closed
 - Volume and mute buttons
 - Updates over the air from Home Assistant, into the spare of two slots, like every TECHO5 device
 - Full CPU speed, 793 MHz to 1.99 GHz on both clusters, with temperature control
@@ -139,6 +141,7 @@ The preloader, the bootloader and ATF all print there. Fire OS's own kernel stay
 | Panel | 800x1280 DSI (ILI9881C or JD9365, depending on the unit) |
 | Touch | FocalTech FT5422 |
 | Light sensor | AMS TCS3400 |
+| Camera | OmniVision OV13855, 13 MP, 4-lane MIPI CSI-2 |
 
 ## Kernel source
 
@@ -155,6 +158,10 @@ What the patches add:
 - the display panel init sequences, taken from Amazon's GPL-2.0 kernel for the device
 - Bluetooth and Wi-Fi fixes for the MT7663
 - TCS3400 support in the light sensor driver
+- the camera: MediaTek's sensor interface and CAMSV drivers (from
+  [vpavlin/mt8183-camera](https://github.com/vpavlin/mt8183-camera), which runs them on MT8183
+  Chromebooks) and a new OV13855 driver. The chip's own image processor needs firmware Linux doesn't
+  have, so the raw frames go straight to memory and TECHO5 develops them itself
 - USB device mode on this board
 
 The plan is to send the fixes and the device tree upstream.
