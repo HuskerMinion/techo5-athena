@@ -164,8 +164,6 @@ What the patches add:
   have, so the raw frames go straight to memory and TECHO5 develops them itself
 - USB device mode on this board
 
-The plan is to send the fixes and the device tree upstream.
-
 ## Credits
 
 - **The unlock:** saiyaku-athena and kaeru by [R0rt1z2](https://github.com/R0rt1z2), with bengris32
