@@ -37,7 +37,7 @@ from kernel.org, with a device tree and drivers written for this board.
 This repo is the front page. The code, the installer, the kernel source and the releases all live in
 [TECHO5](https://github.com/HuskerMinion/techo5), along with the other Echo Shows.
 
-> **New in v1.2.19: full speed.** Until now the kernel never scaled the CPUs, so they sat at the
+> **Since v1.2.19: full speed.** Before that the kernel never scaled the CPUs, so they sat at the
 > bootloader's clock, about 1.1 GHz on the little cores and 1.2 GHz on the big ones. Now both clusters
 > run from 793 MHz up to 1.99 GHz, the way Fire OS runs them, and the chip slows itself down when it
 > gets hot. The update arrives over the air from Home Assistant, kernel included.
@@ -59,8 +59,9 @@ This repo is the front page. The code, the installer, the kernel source and the 
 
 Known limits:
 
-- **Only one screen panel is supported so far**, the ILI9881C with BOE glass. Amazon used several
-  panels in this model. The installer checks yours. On any other panel it can still put TECHO5 on
+- **Three screen panels are tested**: the ILI9881C with BOE glass, the JD9365 with KD/HSD glass and the
+  JD9365 with BOE glass (the newer one). Amazon used several panels in this model. The installer checks
+  yours. On any other panel it stops, unless you give `--force-panel` (the screen may stay dark) or use
   Amazon's kernel instead.
 - The light sensor isn't calibrated yet.
 - The microphone beamformer is off.
