@@ -54,7 +54,10 @@ This repo is the front page. The code, the installer, the kernel source and the 
   while muted or with the shutter closed
 - Volume and mute buttons
 - Updates over the air from Home Assistant, into the spare of two slots, like every TECHO5 device
-- Full CPU speed, 793 MHz to 1.99 GHz on both clusters, with temperature control
+- Full CPU speed, 793 MHz to 1.99 GHz on both clusters, with temperature control, scaled by the ondemand
+  governor, which keeps wake word frames short at the same temperature
+- Speaking right after the wake word, to-do lists, a baby monitor, sounds of your own and separate voice and
+  call volumes, the same as on the other Shows
 - Kernel updates over the air too, with the old kernel kept as the way back
 
 Known limits:
@@ -111,6 +114,7 @@ You need an Echo Show 8 2nd gen that's already unlocked with saiyaku-athena (see
 **This can brick your Echo Show.** Read the
 [install guide](https://github.com/HuskerMinion/techo5/blob/main/docs/install-athena.md) all the way
 through first. The installer backs up every partition before it writes anything. Keep that backup.
+It checks every download against the release's checksums, and tries one that fails once more.
 
 ## The board
 
