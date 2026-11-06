@@ -59,6 +59,8 @@ This repo is the front page. The code, the installer, the kernel source and the 
 - Speaking right after the wake word, to-do lists, a baby monitor, sounds of your own and separate voice and
   call volumes, the same as on the other Shows
 - Kernel updates over the air too, with the old kernel kept as the way back
+- AirPlay 2, grouped with other AirPlay 2 speakers, since v1.6.27's kernel
+- Everything else new in the daemon is in TECHO5's [What's new](https://github.com/HuskerMinion/techo5#whats-new)
 
 Known limits:
 
